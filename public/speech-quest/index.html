@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#183d32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true">✦</div>
+        <div><p class="eyebrow">ARTICULATION ADVENTURE</p><h1>Speech Quest</h1></div>
+      </div>
+    </header>
+
+    <section class="statusbar" aria-label="Game progress">
+      <div class="score-readout"><span class="score-star" aria-hidden="true">★</span><span>Stars</span><strong id="score">0</strong></div>
+      <div class="progress-block">
+        <div class="progress-label"><span id="level-label">LEVEL 1</span><span id="found-count">Objects found: 0 / 5</span></div>
+        <div class="progress-track" role="progressbar" aria-label="Objects collected" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="progress-bar"><span id="progress-fill"></span></div>
+      </div>
+    </section>
+
+    <section class="map-stage" aria-label="Speech Quest map">
+      <canvas id="game-world" tabindex="0" aria-label="Explore the map and find the glowing speech objects"></canvas>
+      <div class="map-chip biome-chip" id="biome-chip">
+        <span class="map-chip-dot"></span>
+        <span id="area-name">Emerald Meadow</span>
+      </div>
+      <div class="map-chip controller-chip" id="controller-status" role="status"><span class="map-chip-dot"></span><span>WAITING FOR JOYSTICK</span></div>
+      <div class="player-tag" id="player-tag" aria-hidden="true"></div>
+      <button class="audio-banner" id="audio-banner" type="button" title="Click to enable game sound">Tap anywhere to start music</button>
+
+      <div class="dialog-scrim" id="challenge" hidden>
+        <article class="challenge-panel" aria-labelledby="challenge-word">
+          <div class="challenge-art" id="challenge-art" aria-hidden="true">☀️</div>
+          <p class="challenge-kicker" id="challenge-level">SOUND STOP</p>
+          <h2 id="challenge-word">SUN</h2>
+          <p class="say-prompt">Say: <strong id="say-word">SUN</strong></p>
+          <div class="challenge-actions">
+            <button class="listen-button" id="speak-word" type="button" aria-label="Hear the target word" title="Hear word">◖))</button>
+            <div class="mic-indicator" id="mic-indicator" role="status" aria-live="polite"><span aria-hidden="true">🎤</span><span id="mic-label">WAITING FOR LCD GO SIGNAL</span></div>
+          </div>
+          <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+        </article>
+      </div>
+
+      <div class="celebration" id="celebration" hidden>
+        <div class="celebration-card">
+          <div class="celebration-medal" aria-hidden="true">🏆</div>
+          <p class="challenge-kicker">QUEST COMPLETE</p>
+          <h2>Speech Quest complete!</h2>
+          <p id="final-found">You found 5 / 5 objects!</p>
+          <p class="final-score"><span aria-hidden="true">★</span> Score: <strong id="final-score">5</strong></p>
+          <button id="play-again" class="play-again" type="button">Play again <span aria-hidden="true">↻</span></button>
+        </div>
+      </div>
+    </section>
+    <footer class="game-footer"><span>FIND THE GLOW</span><span class="footer-sparkle" aria-hidden="true">✦</span><span>SAY THE WORD</span><span class="footer-sparkle" aria-hidden="true">✦</span><span>GROW YOUR SCORE</span></footer>
+  </main>
+</body>
+</html>

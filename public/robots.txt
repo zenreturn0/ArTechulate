@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /therapist
+Disallow: /admin
+
+Sitemap: https://articulate.io/sitemap.xml

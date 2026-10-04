@@ -1,0 +1,301 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Playful pastel color palette for kids speech therapy app.
+     Higher chroma than before so surfaces and accents actually read as
+     colorful candy pastels instead of washed-out near-white. */
+  --background: oklch(0.975 0.025 320);
+  --foreground: oklch(0.27 0.03 285);
+
+  /* Cards carry a soft pastel tint so panels feel warm, not blank white */
+  --card: oklch(0.99 0.022 310);
+  --card-foreground: oklch(0.27 0.03 285);
+
+  --popover: oklch(0.995 0.018 320);
+  --popover-foreground: oklch(0.27 0.03 285);
+
+  /* Primary - Playful coral pink (richer, white text on top) */
+  --primary: oklch(0.7 0.17 22);
+  --primary-foreground: oklch(0.99 0.01 20);
+
+  /* Secondary - Soft mint green */
+  --secondary: oklch(0.88 0.12 158);
+  --secondary-foreground: oklch(0.3 0.08 158);
+
+  /* Muted - Light lavender (visible enough to tint chips & bar tracks) */
+  --muted: oklch(0.95 0.04 295);
+  --muted-foreground: oklch(0.48 0.04 285);
+
+  /* Accent - Sunny pastel yellow */
+  --accent: oklch(0.9 0.16 95);
+  --accent-foreground: oklch(0.3 0.1 95);
+
+  /* Destructive */
+  --destructive: oklch(0.64 0.21 25);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.89 0.035 300);
+  --input: oklch(0.97 0.02 300);
+  --ring: oklch(0.7 0.17 22);
+
+  /* Explicit pastel color tokens — the candy palette used across the app */
+  --coral: oklch(0.76 0.16 22);
+  --mint: oklch(0.85 0.14 158);
+  --sky: oklch(0.83 0.12 232);
+  --lavender: oklch(0.82 0.12 295);
+  --peach: oklch(0.86 0.13 55);
+  --sunshine: oklch(0.89 0.16 95);
+
+  /* Chart colors */
+  --chart-1: oklch(0.72 0.19 18);
+  --chart-2: oklch(0.8 0.15 158);
+  --chart-3: oklch(0.8 0.14 232);
+  --chart-4: oklch(0.78 0.14 295);
+  --chart-5: oklch(0.88 0.17 95);
+
+  --radius: 1rem;
+
+  --sidebar: oklch(0.98 0.03 312);
+  --sidebar-foreground: oklch(0.27 0.03 285);
+  --sidebar-primary: oklch(0.7 0.17 22);
+  --sidebar-primary-foreground: oklch(0.99 0.01 20);
+  --sidebar-accent: oklch(0.9 0.07 295);
+  --sidebar-accent-foreground: oklch(0.27 0.03 285);
+  --sidebar-border: oklch(0.9 0.035 300);
+  --sidebar-ring: oklch(0.7 0.17 22);
+}
+
+/* Dark mode — calm deep surfaces, accents stay pastel-bright. */
+.dark {
+  --background: oklch(0.22 0.02 285);
+  --foreground: oklch(0.95 0.015 300);
+
+  --card: oklch(0.27 0.022 285);
+  --card-foreground: oklch(0.95 0.015 300);
+
+  --popover: oklch(0.27 0.022 285);
+  --popover-foreground: oklch(0.95 0.015 300);
+
+  --secondary: oklch(0.4 0.08 158);
+  --secondary-foreground: oklch(0.95 0.02 158);
+
+  --muted: oklch(0.32 0.02 290);
+  --muted-foreground: oklch(0.72 0.025 290);
+
+  --accent: oklch(0.8 0.15 95);
+  --accent-foreground: oklch(0.2 0.05 95);
+
+  --border: oklch(0.36 0.02 290);
+  --input: oklch(0.34 0.02 290);
+
+  --coral: oklch(0.74 0.16 22);
+  --mint: oklch(0.78 0.13 158);
+  --sky: oklch(0.76 0.12 232);
+  --lavender: oklch(0.76 0.12 295);
+  --peach: oklch(0.8 0.12 55);
+  --sunshine: oklch(0.84 0.15 95);
+
+  --sidebar: oklch(0.25 0.022 285);
+  --sidebar-foreground: oklch(0.95 0.015 300);
+  --sidebar-accent: oklch(0.34 0.04 295);
+  --sidebar-accent-foreground: oklch(0.95 0.015 300);
+  --sidebar-border: oklch(0.36 0.02 290);
+}
+
+@theme inline {
+  --font-sans: 'Nunito', system-ui, sans-serif;
+  --font-display: 'Fredoka', 'Nunito', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --color-coral: var(--coral);
+  --color-mint: var(--mint);
+  --color-sky: var(--sky);
+  --color-lavender: var(--lavender);
+  --color-peach: var(--peach);
+  --color-sunshine: var(--sunshine);
+  
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+  
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Nunito', system-ui, sans-serif;
+    /* Soft multi-stop pastel wash so the whole app feels playful for kids,
+       while staying light enough to keep text crisp for therapists. */
+    background-image: linear-gradient(
+      135deg,
+      color-mix(in oklch, var(--lavender) 26%, white) 0%,
+      color-mix(in oklch, var(--sky) 20%, white) 30%,
+      color-mix(in oklch, var(--peach) 22%, white) 62%,
+      color-mix(in oklch, var(--sunshine) 24%, white) 100%
+    );
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-image: linear-gradient(
+      135deg,
+      color-mix(in oklch, var(--lavender) 16%, var(--background)) 0%,
+      color-mix(in oklch, var(--sky) 14%, var(--background)) 45%,
+      color-mix(in oklch, var(--peach) 14%, var(--background)) 100%
+    );
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fredoka', 'Nunito', system-ui, sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--coral) 45%, white 55%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--coral) 55%, white 45%);
+}
+
+/* Animations */
+@keyframes logo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px color-mix(in srgb, var(--coral) 45%, transparent 55%);
+  }
+  50% {
+    box-shadow: 0 0 40px color-mix(in srgb, var(--coral) 65%, transparent 35%);
+  }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes sound-wave {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.animate-sound-wave {
+  animation: sound-wave 1s ease-out infinite;
+}
+
+
+
